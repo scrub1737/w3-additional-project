@@ -1,6 +1,7 @@
 /*
     Write a function r2d2Speaks that takes in a series of 0s and 1s.
-    The function should console.log a 'beep' for a 0 followed by a pause of 400 ms and a 'boop' for a 1 followed by 800 ms.
+    The function should console.log a 'beep' for a 0 followed by a pause of 400 ms
+    and a 'boop' for a 1 followed by 800 ms.
     
     let code = [0, 1, 1, 0];
     r2d2Speaks(code);
@@ -20,8 +21,37 @@
 */
 
 function r2d2Speaks(code) {
-    
+    if (!code.length) {return;}
+
+    let num = code.shift()
+    if (num === 0) {
+        console.log("beep");
+        setTimeout(function() { r2d2Speaks(code) }, 400);
+    } else {
+        console.log("boop");
+        setTimeout(function() { r2d2Speaks(code) }, 800); 
+    }
 }
+
+// function r2d2Speaks(code) {
+//     // Base case: check if array is empty then return 
+//     if (code.length === 0) {
+//         return
+//     }
+//     // Recursive step: Get the first element in the array maybe use Array#slice or Array#pop or Array#shift, or destructing the array
+//     let firstElement = code.shift()
+//     // Check if first element is a 0 or 1
+//     if (firstElement === 0) {
+//         // print beep and use a setTimeout of 400ms
+//         console.log('beep')
+//         setTimeout(function () { r2d2Speaks(code) }, 400)
+//     } else {
+//         // print boop and use a setTimeout of 800ms
+//         console.log('boop')
+//         setTimeout(function () { r2d2Speaks(code) }, 800)
+//     }
+// }
+
 
 let code = [0, 1, 1, 0];
 r2d2Speaks(code);
