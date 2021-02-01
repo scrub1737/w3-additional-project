@@ -18,7 +18,30 @@
 
 function dynamicSlice(start, end) {
     
+    return function(arr) {
+        let sliced = []
+        // console.log(start, end);
+        if (start < 0) {
+            start = 0;
+        }
+        // console.log(start, end);
+        if (end > arr.length) {
+            end = arr.length
+        }
+        // console.log(start, end);
+        for (let i = start; i < end; i++) {
+            sliced.push(arr[i]);
+        }
+        return sliced;
+    }
 }
+
+// const slicer = dynamicSlice(2, 4);
+// console.log(slicer([0, 1, 2, 3])); // prints [ 2, 3 ]
+// console.log(slicer([2, 4, 'hello', false])); // prints ['hello', false]
+
+// const slicer2 = dynamicSlice(-2, 10);
+// console.log(slicer2([0, 1, 2, 3])); // prints [0, 1, 2, 3]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
